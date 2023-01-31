@@ -2,7 +2,7 @@
 @model List<object>
 @using MusicaLMFL.Modelo
 
-<h3 style="margin-bottom: 25px; text-align: center;">Añadir Disco</h3>
+<h3 style="margin-bottom: 25px; text-align: center;">Añadir Teclado</h3>
 <p class="text-left">Mensaje: <span id="mensaje"></span></p>
 
 <div class="container">
@@ -10,52 +10,57 @@
         <div class="form-area">
             <form class="form" method="post" id="my_form" onsubmit="Enviar()">
                 <div class="form-group">
-                    <label for="titulo">Titulo</label>
-                    <input name="Titulo" type="text" maxlength="30" required="3" class="form-control" placeholder="Título" id="titulo" />
+                    <label for="nombre">Nombre</label>
+                    <input name="Nombre" type="text" maxlength="30" required="3" class="form-control" placeholder="Nombre" id="nombre" />
                 </div>
                 <div class="form-group">
-                    <label for="autor">Autor</label>
-                    <input name="Autor" type="text" maxlength="30" minlength="3" required="" class="form-control" placeholder="Autor" id="autor" />
+                    <label for="designer">Diseñador</label>
+                    <input name="Designer" type="text" maxlength="30" minlength="3" required="" class="form-control" placeholder="Diseñador" id="designer" />
                 </div>
                 <div class="form-group">
-                    <label for="genero">Genero</label>
-                    <select name="Genero" class="form-control" id="genero">
-                        @foreach (TGenero genero in Model)
+                    <label for="switch">Switch</label>
+                    <select name="Switch" class="form-control" id="switch">
+                        @foreach (TSwitch switches in Model)
                         {
-                            <option value="@genero.Genero">@genero.Genero</option>
+                            <option value="@switches.Switch">@switches.Switch</option>
                         }
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <label for="canciones">Canciones</label>
-                    <input name="Canciones" type="text" required="" class="form-control" placeholder="Canciones" id="canciones" />
-                </div>
-                <div class="form-group">
-                    <label for="precio">Precio</label>
-                    <input name="Precio" type="text" required="" class="form-control" placeholder="Precio" id="precio" />
+                    <label for="keycaps">Keycaps</label>
+                    <input name="Keycaps" type="text" required="" class="form-control" placeholder="Keycaps" id="keycaps" />
                 </div>
                 <div class="form-group">
                     <label for="imagen">Imagen</label>
                     <input name="Imagen" type="text" required="" class="form-control" placeholder="Imagen" id="imagen" />
                 </div>
                 <fieldset class="form-group">
-                    <legend>Formato:</legend>
-                    <input type="checkbox" name="Formatouno" value="Vinilo" id="vinilo" />Vinilo <br>
-                    <input type="checkbox" name="Formatodos" value="CD" id="cd" />CD<br>
-                    <input type="checkbox" name="Formatotres" value="Digipack" id="digipack" />Digipack<br>
+                    <legend>Hotswap:</legend>
+                    <input type="checkbox" name="Hotswap" value="Si" id="hotswap" />Si/No<br>
                 </fieldset>
                 <fieldset class="form-group">
-                    <legend>Estado: </legend>
-                    <input type="radio" name="Estado" value="Novedad" id="novedad" />Novedad<br />
-                    <input type="radio" name="Estado" value="Reedición" id="reedicion" />Reedición<br />
+                    <legend>Compatibilidad: </legend>
+                    <input type="checkbox" name="Qmk" value="Si" id="qmk" />QMK<br>
+                    <input type="checkbox" name="Via" value="Si" id="via" />VIA<br>
                 </fieldset>
+                <fieldset class="form-group">
+                    <legend>RGB: </legend>
+                    <input type="checkbox" name="Rgb" value="Si" id="qmk" />RGB<br>
+                </fieldset>
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input name="Descripcion" type="text" required="" class="form-control" placeholder="Descripcion" id="descripcion" />
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input name="Precio" type="text" required="" class="form-control" placeholder="Precio" id="precio" />
+                </div>
                 <br>
+
                 <div class="submit">
                     <input type="submit" id="botonEnviar" value="Insertar" class="btn btn-primary pull-right" />
                     <input type="reset" value="Borrar Campos" class="btn btn-danger pull-right" id="button-reset">
-                 <div class="ease"></div>
-                 <br>
+                    <div class="ease"></div>
             </form>
         </div>
     </div>
@@ -68,9 +73,9 @@
 
     function Enviar()
     {
-        var uri = @Url.Action("addDisco", "Disco");
-        var disco = {};
-        disco = cargarDisco(disco);
+        var uri = @Url.Action("addTeclado", "Teclado");
+        var teclado = {};
+        teclado = cargarTeclado(teclado);
         $.ajax({
             url: uri,
           data: JSON.stringify(disco),
@@ -84,7 +89,7 @@
         $mensaje.textContent = data;
     }
 
-    function cargarDisco(disco) {
+    function cargarTeclado(teclado) {//Terminar
         disco.Titulo = document.getElementById("titulo").value;
         disco.Autor = document.getElementById("autor").value;
         disco.Genero = document.getElementById("genero").value;

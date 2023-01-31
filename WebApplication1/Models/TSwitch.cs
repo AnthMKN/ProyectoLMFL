@@ -2,16 +2,17 @@
 {
     public class TSwitch
     {
-        public string Tipo { get; set; }
+        public string Switch { get; set; }
         public string Borrado { get; set; }
 
         public TSwitch()
         {
+
         }
 
-        public TSwitch(string tipo)
+        public TSwitch(string switches)
         {
-            this.Tipo = tipo;
+            this.Switch = switches;
         }
     }
 }

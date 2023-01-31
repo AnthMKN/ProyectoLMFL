@@ -1,0 +1,51 @@
+﻿@model MusicaLMFL.Modelo.TTeclado
+
+@{
+    ViewBag.Title = "verTeclado";
+    Layout = "~/Views/Plantilla/Plantilla.cshtml";
+}
+
+<div>
+    <center><h4> DATOS DEL TECLADO </h4></center>
+</div>
+
+<br /><br /><br />
+
+            <div class="container">
+                <div class="row">
+                    <img border="1" alt="Portada" src=@Model.Imagen width="150" height="150">
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">Nombre: </label><span class="prop-border col-sm-7">@Model.Nombre</span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">Diseñador: </label><span class="prop-border col-sm-7">@Model.Designer</span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">Tipo de Switch: </label><span class="prop-border col-sm-7">@Model.Switch </span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">Tipo de Keycaps</label><span class="prop-border col-sm-7">@Model.Keycaps</span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">Hotswap: </label><span class="prop-border col-sm-7">@Model.Hotswap</span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">QMK: </label><span class="prop-border col-sm-7">@Model.Qmk</span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">VIA: </label><span class="prop-border col-sm-7">@Model.Via</span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">RGB: </label><span class="prop-border col-sm-7">@Model.Rgb</span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">Descripción: </label><span class="prop-border col-sm-7">@Model.Descripcion</span>
+                </div>
+                <div class="row">
+                    <label class="col-sm-5">Precio: </label><span class="prop-border col-sm-7">@Model.Precio + "€"</span>
+                </div>
+            </div>
+
+
+<!--@Html.ActionLink("AÑADIR AL CARRITO", "addCarrito", "Teclado", new { CodTeclado = Model.CodTeclado, accion = "Consultar" }, null)-->

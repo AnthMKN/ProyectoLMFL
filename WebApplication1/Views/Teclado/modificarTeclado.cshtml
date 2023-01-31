@@ -1,0 +1,79 @@
+﻿@using MusicaLMFL.Modelo
+@{
+    ViewBag.Title = "modificarDisco";
+    Layout = "~/Views/Plantilla/Plantilla.cshtml";
+    TTeclado teclado = Model[0];
+}
+
+<h3 style="margin-bottom: 25px; text-align: center;">Modificar Disco</h3>
+
+
+<div class="container">
+    <div class="col-md-10">
+        <div class="form-area">
+            <form class="form" method="post">
+                <img border="1" alt="Portada" src=@teclado.Imagen width="150" height="150">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input name="Nombre" type="text" maxlength="30" required="3" class="form-control" id="nombre" value="@teclado.Nombre" />
+                </div>
+                <div class="form-group">
+                    <label for="designer">Diseñador</label>
+                    <input name="Designer" type="text" maxlength="30" minlength="3" required="" class="form-control" id="designer" value="@teclado.Designer" />
+                </div>
+                <div class="form-group">
+                    <label for="switch">Switch</label>
+                    <select name="Switch" class="form-control" id="switch">
+                        @foreach (TSwitch switches in Model)
+                        {
+                            <option value="@switches.Switch">@switches.Switch</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="keycaps">Keycaps</label>
+                    <input name="Keycaps" type="text" required="" class="form-control" id="keycaps" value="@teclado.Keycaps"/>
+                </div>
+                <div class="form-group">
+                    <label for="imagen">Imagen</label>
+                    <input name="Imagen" type="text" required="" class="form-control" id="imagen" value="@teclado.Imagen"/>
+                </div>
+                <fieldset class="form-group">
+                    <legend>Hotswap:</legend>
+                    <input type="checkbox" name="Hotswap" value="Si" @(teclado.Hotswap == "N/A" ? "" : "checked") id="hotswap" />Si/No<br>
+                </fieldset>
+                <fieldset class="form-group">
+                    <legend>Compatibilidad: </legend>
+                    <input type="checkbox" name="Qmk" value="Si" @(teclado.Qmk == "N/A" ? "" : "checked") id="qmk" />QMK<br>
+                    <input type="checkbox" name="Via" value="Si" @(teclado.Via == "N/A" ? "" : "checked") id="via" />VIA<br>
+                </fieldset>
+                <fieldset class="form-group">
+                    <legend>RGB: </legend>
+                    <input type="checkbox" name="Rgb" value="Si" @(teclado.Rgb == "N/A" ? "" : "checked") id="qmk" />RGB<br>
+                </fieldset>
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <input name="Descripcion" type="text" required="" class="form-control" id="descripcion" value="@teclado.Descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+                    <input name="Precio" type="text" required="" class="form-control" id="precio" value="@teclado.Precio" />
+                </div>
+                <br>
+                <div class="submit">
+                    <input type="submit" value="Modificar Datos" class="btn btn-primary pull-right" id="button-blue" />
+                    <div class="ease"></div>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

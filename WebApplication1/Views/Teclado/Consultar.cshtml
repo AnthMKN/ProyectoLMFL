@@ -1,0 +1,50 @@
+﻿@using MusicaLMFL.Modelo
+@model List<MusicaLMFL.Modelo.TTeclado>
+
+@{
+    /**/
+
+    ViewBag.Title = "Consultar";
+}
+
+
+<div class="container">
+    <center>
+        <!--span id="totadiscos">Discos a la venta: @Model.Count</!--span><br /><br /-->
+        <div class="modal-body row" id="modal-champions-body">
+            @foreach (var teclado in Model)
+            {
+                <div id="@teclado.CodTeclado">
+                    <div><img alt="Portada" src=@teclado.Imagen width="200" height="200"></div>
+                    <div>
+                        @Html.ActionLink(teclado.Nombre, "verTeclado", "Teclado", new { CodTeclado = teclado.CodTeclado }, new { @class = "text-dark" })
+                    </div>
+                    @{ if (Session["usuario"] != null && ((TUsuario)Session["usuario"]).Rol.Equals("admin"))
+                        {
+                            <div>@Html.ActionLink(" Editar ", "modificarDisco", "Disco", new { CodDisco = @disco.CodDisco }, null)</div>
+
+                            <div>
+                                @Ajax.ActionLink(" Borrar ", "borrarDisco", "Disco", new { CodDisco = @disco.CodDisco }, new AjaxOptions()
+                                {
+                                    HttpMethod = "GET",
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = "totateclados",//Revisar la vista
+                                }, new { id = @teclado.CodTeclado, onclick = "myFunction(id);" })
+                            </div>
+                        }
+                    }
+                    <div><br /></div>
+                </div>
+            }
+        </div>
+    </center>
+</div>
+
+    <script>
+        function myFunction(a) {
+            var list = document.getElementById(a);
+            if (list.hasChildNodes()) {
+                list.parentNode.removeChild(list);
+            }
+        }
+    </script>

@@ -205,6 +205,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Comun\Errores.cs" />
     <Compile Include="Comun\Mensaje.cs" />
+    <Compile Include="Controllers\TecladoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Models\LineaAuxiliar.cs" />
     <Compile Include="Models\TSwitch.cs" />
@@ -286,6 +287,12 @@
     <Content Include="Views\Disco\CarroCompra.cshtml" />
     <Content Include="Views\Usuario\verFacturas.cshtml" />
     <Content Include="Views\Usuario\detalleFactura.cshtml" />
+    <Content Include="Views\Teclado\_BorrarTeclado.cshtml" />
+    <Content Include="Views\Teclado\_VerTeclado.cshtml" />
+    <Content Include="Views\Teclado\addTeclado.cshtml" />
+    <Content Include="Views\Teclado\CarroCompra.cshtml" />
+    <Content Include="Views\Teclado\Consultar.cshtml" />
+    <Content Include="Views\Teclado\modificarTeclado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

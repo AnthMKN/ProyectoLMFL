@@ -18,12 +18,12 @@ namespace MusicaLMFL.Modelo
         public string Imagen { get; set; }
         public string Borrado { get; set; }
 
-        public TTeclado(string codTeclado, string designer, string nombre, string switchs, string keycaps, string hotswap, string qmk, string via, string rgb, string descripcion, string precio, string imagen, string borrado)
+        public TTeclado(string codTeclado, string designer, string nombre, string switches, string keycaps, string hotswap, string qmk, string via, string rgb, string descripcion, string precio, string imagen, string borrado)
         {
             this.CodTeclado = codTeclado;
             this.Designer = designer;
             this.Nombre = nombre;
-            this.Switch = switchs;
+            this.Switch = switches;
             this.Keycaps = keycaps;
             this.Hotswap = hotswap;
             this.Qmk = qmk;
@@ -34,12 +34,12 @@ namespace MusicaLMFL.Modelo
             this.Imagen = imagen;
             this.Borrado = borrado;
         }
-        public TTeclado(string designer, string nombre, string switchs, string keycaps, string hotswap, string qmk, string via, string rgb, string descripcion, string precio, string imagen)
+        public TTeclado(string designer, string nombre, string switches, string keycaps, string hotswap, string qmk, string via, string rgb, string descripcion, string precio, string imagen)
         {
             this.CodTeclado = Util.GenerarCodigo(this.GetType());
             this.Designer = designer;
             this.Nombre = nombre;
-            this.Switch = switchs;
+            this.Switch = switches;
             this.Keycaps = keycaps;
             this.Hotswap = hotswap;
             this.Qmk = qmk;
