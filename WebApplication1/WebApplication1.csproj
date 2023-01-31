@@ -207,6 +207,8 @@
     <Compile Include="Comun\Mensaje.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Models\LineaAuxiliar.cs" />
+    <Compile Include="Models\TSwitch.cs" />
+    <Compile Include="Models\TTeclado.cs" />
     <Compile Include="Models\TUsuario.cs" />
     <Compile Include="Models\TLinea.cs" />
     <Compile Include="Models\TGenero.cs" />
