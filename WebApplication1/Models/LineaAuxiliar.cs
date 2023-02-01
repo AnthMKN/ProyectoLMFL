@@ -6,14 +6,14 @@ namespace MusicaLMFL.Modelo
     {
 
         public string CodFactura { get; set; }
-        public TDisco Disco { get; set; }
+        public TTeclado Teclado { get; set; }
         public string Cantidad { get; set; }
         public string Total { get; set; }
 
-        public LineaAuxiliar(string codFactura, TDisco disco, string cantidad, string total)
+        public LineaAuxiliar(string codFactura, TTeclado teclado, string cantidad, string total)
         {
             CodFactura = codFactura;
-            Disco = disco;
+            Teclado = teclado;
             Cantidad = cantidad;
             Total = total;
         }

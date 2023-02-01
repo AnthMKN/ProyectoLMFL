@@ -20,15 +20,15 @@
             <div class="collapse navbar-collapse " id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Discos</a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Teclados</a>
                         <div class="dropdown-menu">
                             @{
                                 if (Session["usuario"] != null && ((TUsuario)Session["usuario"]).Rol.Equals("admin"))
                                 {
-                                    <div class="dropdown-item">@Html.ActionLink("Añadir disco", "addDisco", "Disco")</div>
+                                    <div class="dropdown-item">@Html.ActionLink("Añadir teclado", "addTeclado", "Teclado")</div>
                                 }
                             }
-                            <div class="dropdown-item">@Html.ActionLink("Consultar", "Consultar", "Disco")</div>
+                            <div class="dropdown-item">@Html.ActionLink("Consultar", "Consultar", "Teclado")</div>
                         </div>
                     </li>
                     @{
@@ -105,7 +105,7 @@
                                     <div class="dropdown-menu">
                                         <ul id="carro" class="list-group"></ul> <hr />
                                         <p class="text-right">Total: <span id="t"></span>&euro;</p>
-                                        <form action="/Disco/CarroCompra" method="post">
+                                        <form action="/Teclado/CarroCompra" method="post">
                                             <button class="btn btn-xs btn-success btn-block">Comprar</button>
                                         </form>
                                     </div>
@@ -153,7 +153,7 @@
             {
                 let miNodo = document.createElement('li');
                 miNodo.classList.add('list-group-item', 'text-right');
-                miNodo.textContent = `${miItem[0]['Titulo']} - ${miItem[0]['Precio']}€`
+                miNodo.textContent = `${miItem[0]['Titulo']} - ${miItem[0]['Precio']}`
                 let miBoton = document.createElement('button');
                 miBoton.classList.add('btn', 'btn-danger', 'mx-5');
                 miBoton.textContent = 'X';

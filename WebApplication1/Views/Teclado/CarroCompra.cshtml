@@ -95,7 +95,7 @@
         {
             let miNodo = document.createElement('li');
             miNodo.classList.add('list-group-item', 'text-right');
-            miNodo.textContent = `${miItem[0]['Titulo']} - ${miItem[0]['Precio']}€`
+            miNodo.textContent = `${miItem[0]['Nombre']} - ${miItem[0]['Precio']}€`
             let miBoton = document.createElement('button');
             miBoton.classList.add('btn', 'btn-danger', 'mx-5');
             miBoton.textContent = 'X';
@@ -139,7 +139,7 @@
         for (let miItem of carrito) {
             lf = {};
             lf.Teclado = miItem[0].CodTeclado;
-            lf.Cantidad = 1;
+            lf.Cantidad = miItem[0].Cantidad;//quitamos el 0 por Cantidad
             lf.Total = miItem[0].Precio;
             lineas.push(lf);
         }

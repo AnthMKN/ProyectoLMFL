@@ -22,7 +22,7 @@ namespace MusicaLMFL.Controllers
 
             foreach (TLineaFactura lineaFactura in control.Buscar(new TLineaFactura().GetType(), "CodFactura", CodFactura))
             {
-                listaVentas.Add(new LineaAuxiliar(lineaFactura.CodFactura, (control.Buscar(new TDisco().GetType(), lineaFactura.Disco) as TDisco), lineaFactura.Cantidad, lineaFactura.Total));//Cambiar a Teclado
+                listaVentas.Add(new LineaAuxiliar(lineaFactura.CodFactura, (control.Buscar(new TTeclado().GetType(), lineaFactura.Teclado) as TTeclado), lineaFactura.Cantidad, lineaFactura.Total));
             }
 
             return View(listaVentas);

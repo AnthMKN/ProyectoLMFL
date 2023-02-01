@@ -12,7 +12,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Libro</th>
+                        <th>Teclado</th>
                         <th>Cantidad</th>
                         <th class="text-center">Precio</th>
                         <th class="text-center">Subtotal</th>
@@ -29,16 +29,16 @@
                             <tr>
                                 <td class="col-sm-8 col-md-6">
                                     <div class="media">
-                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src=@linea.Disco.Imagen style="width: 72px; height: 72px;"> </a>
+                                        <a class="thumbnail pull-left" href="#"> <img class="media-object" src=@linea.Teclado.Imagen style="width: 72px; height: 72px;"> </a>
                                         <div class="media-body">
-                                            <h4 class="media-heading"><a href="#">@linea.Disco.Titulo - @linea.Disco.Autor</a></h4>
+                                            <h4 class="media-heading"><a href="#">@linea.Teclado.Nombre - @linea.Teclado.Designer</a></h4>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="col-sm-1 col-md-1" style="text-align: center">
                                     <input type="number" class="form-control" id="exampleInputEmail1" value="@linea.Cantidad" disabled>
                                 </td>
-                                <td class="col-sm-1 col-md-1 text-center"><strong>@linea.Disco.Precio</strong></td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong>@linea.Teclado.Precio</strong></td>
                                 <td class="col-sm-1 col-md-1 text-center"><strong>@linea.subTotal()</strong></td>
                                 <td class="col-sm-1 col-md-1"></td>
                             </tr>

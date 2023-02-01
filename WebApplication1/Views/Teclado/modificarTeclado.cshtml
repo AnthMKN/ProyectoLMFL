@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="switch">Switch</label>
                     <select name="Switch" class="form-control" id="switch">
-                        @foreach (TSwitch switches in Model)
+                        @foreach (TSwitch switches in Model[1])
                         {
                             <option value="@switches.Switch">@switches.Switch</option>
                         }

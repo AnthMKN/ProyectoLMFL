@@ -131,7 +131,7 @@ namespace MusicaLMFL.Controllers
 
             foreach (TLinea linea in data)
             {
-                TLineaFactura lineaTemp = new TLineaFactura(factura.CodFactura, linea., linea.Cantidad.ToString(), linea.Total.ToString());//Revisar
+                TLineaFactura lineaTemp = new TLineaFactura(factura.CodFactura, linea.Teclado, linea.Cantidad.ToString(), linea.Total.ToString());
                 listaLineasFactura.Add(lineaTemp);
             }
 

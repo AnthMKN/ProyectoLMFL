@@ -10,7 +10,7 @@
 
 <div class="container">
     <center>
-        <!--span id="totadiscos">Discos a la venta: @Model.Count</!--span><br /><br /-->
+        <!--span id="totateclados">Teclados a la venta: @Model.Count</!--span><br /><br /-->
         <div class="modal-body row" id="modal-champions-body">
             @foreach (var teclado in Model)
             {
@@ -21,14 +21,14 @@
                     </div>
                     @{ if (Session["usuario"] != null && ((TUsuario)Session["usuario"]).Rol.Equals("admin"))
                         {
-                            <div>@Html.ActionLink(" Editar ", "modificarDisco", "Disco", new { CodDisco = @disco.CodDisco }, null)</div>
+                            <div>@Html.ActionLink(" Editar ", "modificarTeclado", "Teclado", new { CodTeclado = @teclado.CodTeclado }, null)</div>
 
                             <div>
-                                @Ajax.ActionLink(" Borrar ", "borrarDisco", "Disco", new { CodDisco = @disco.CodDisco }, new AjaxOptions()
+                                @Ajax.ActionLink(" Borrar ", "borrarTeclado", "Teclado", new { CodTeclado = @teclado.CodTeclado }, new AjaxOptions()
                                 {
                                     HttpMethod = "GET",
                                     InsertionMode = InsertionMode.Replace,
-                                    UpdateTargetId = "totateclados",//Revisar la vista
+                                    UpdateTargetId = "totateclados",
                                 }, new { id = @teclado.CodTeclado, onclick = "myFunction(id);" })
                             </div>
                         }
