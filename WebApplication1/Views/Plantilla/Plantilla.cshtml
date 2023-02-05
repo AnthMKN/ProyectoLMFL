@@ -40,17 +40,17 @@
                                     <li>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <form class="form" role="form" method="post" action="/Inicio/login" accept-charset="UTF-8" id="login-nav">
+                                                <form class="form" role="form" method="post" action="javascript:Login()" accept-charset="UTF-8" id="login-nav">
                                                     <div class="form-group">
-                                                        <label class="sr-only" for="exampleInputEmail2">Usuario</label>
-                                                        <input name="Nick" type="text" class="form-control" id="exampleInputEmail2" placeholder="Introduce Usuario" required>
+                                                        <label for="exampleInputEmail2">Usuario: </label>
+                                                        <input name="Nick" type="text" class="form-control" id="exampleInputEmail2" placeholder="Usuario..." required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
-                                                        <input name="Pass" type="password" class="form-control" id="exampleInputPassword2" placeholder="Introduce Contraseña" required>
+                                                        <label for="exampleDropdownFormPassword2">Contraseña: </label>
+                                                        <input name="Pass" type="password" class="form-control" id="exampleInputPassword2" placeholder="Contraseña..." required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <button type="submit" class="btn btn-primary btn-block">Loguearse</button>
+                                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -92,7 +92,7 @@
 
                                     @if (((TUsuario)Session["usuario"]).Rol.Equals("user"))
                                     {
-                                    <div class="dropdown-item">@Html.ActionLink("Ver facturas", "verFacturas", "Usuario")</div>
+                                        <div class="dropdown-item">@Html.ActionLink("Ver facturas", "verFacturas", "Usuario")</div>
                                     }
                                 </div>
                             </li>
@@ -100,82 +100,28 @@
                             if (((TUsuario)Session["usuario"]).Rol.Equals("user"))
                             {
 
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown" width="300">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Carrito</a>
                                     <div class="dropdown-menu">
                                         <ul id="carro" class="list-group"></ul> <hr />
                                         <p class="text-right">Total: <span id="t"></span>&euro;</p>
                                         <form action="/Teclado/CarroCompra" method="post">
-                                            <button class="btn btn-xs btn-success btn-block">Comprar</button>
+                                            <button class="btn btn-xs btn-success btn-block">Ver carrito</button>
                                         </form>
                                     </div>
                                 </li>
-
                             }
-
                         }
                     }
-
                 </ul>
             </div>
         </nav>
     </header>
 
-    <script type="text/javascript">
-
-        let t = 0.0;
-        let $carro = document.querySelector('#carro');
-        let $t = document.querySelector('#t');
-        let carro;
-        if (localStorage.carrito !== undefined)
-            carro = JSON.parse(localStorage.carrito);
-            if (carro === undefined)
-                carro = []
-            else
-            {
-                renderizarCarro(carro);
-                calcularT(carro);
-            }
-
-        function calcularT(carro) {
-            t = 0;
-            for (let miItem of carro) {
-                t = t + parseFloat(miItem[0]['Precio']);
-            }
-            $t.textContent = t.toFixed(2);
-        }
-
-
-        function renderizarCarro(carro) {
-            $carro.textContent = '';
-            var indice = 0;
-            for (let miItem of carro)
-            {
-                let miNodo = document.createElement('li');
-                miNodo.classList.add('list-group-item', 'text-right');
-                miNodo.textContent = `${miItem[0]['Titulo']} - ${miItem[0]['Precio']}`
-                let miBoton = document.createElement('button');
-                miBoton.classList.add('btn', 'btn-danger', 'mx-5');
-                miBoton.textContent = 'X';
-                miBoton.setAttribute('posicion', indice);
-                indice = indice + 1;
-                miBoton.addEventListener('click', borrarItemCarro);
-                miNodo.appendChild(miBoton);
-                $carro.appendChild(miNodo);
-            }
-        }
-
-        function borrarItemCarro() {
-            carro.splice(this.getAttribute('posicion'), 1);
-            localStorage.removeItem("carrito");
-            localStorage.carrito = JSON.stringify(carro);
-            renderizarCarro(carro);
-            calcularT(carro);
-        }
-
-    </script>
-
+    <script src="~/Javascript/Plantilla.js"></script>
+    <script src="~/Javascript/login.js"></script>
     @RenderBody()
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
