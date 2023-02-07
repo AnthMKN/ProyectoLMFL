@@ -17,7 +17,7 @@ else {
 
 function success(data) {
     anyadirCarrito(data);
-    localStorage.carrito = JSON.stringify(carrito);
+    localStorage.carrito = JSON.stringify(carrito);//Revisar
 }
 
 function anyadirCarrito(dato) {
