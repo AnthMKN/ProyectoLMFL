@@ -26,7 +26,6 @@ function anyadirCarrito(dato) {
         dato[0].Cantidad = 1;
         carrito.push(dato);
     } else {
-        var cantidad = 1;
         carrito.forEach(function (element, index) {
             var codTeclado = carrito[index][0].CodTeclado;
             if (codTeclado == dato[0].CodTeclado) {
@@ -34,9 +33,8 @@ function anyadirCarrito(dato) {
                 encontrado = true;
             }
         });
-
         if (!encontrado) {
-            dato[0].Cantidad = cantidad;
+            dato[0].Cantidad = 1;
             carrito.push(dato);
         }
     }
@@ -47,8 +45,8 @@ function anyadirCarrito(dato) {
 function calcularTotal(carrito) {
     total = 0;
     for (let miItem of carrito) {
-        var a = parseInt(miItem[0].Cantidad);
-        total = total + parseFloat(miItem[0]['Precio'] * a);
+        var cantidad = parseInt(miItem[0].Cantidad);
+        total = total + parseFloat(miItem[0]['Precio'] * cantidad);
     }
     $total.textContent = total.toFixed(2);
 
