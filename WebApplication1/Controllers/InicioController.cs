@@ -68,7 +68,7 @@ namespace WebApplication1.Controllers
         {
             Session["usuario"] = null;
             return View("Inicio");
-        }
+            }
 
         private bool addUsuario(TUsuario usuario)
         {
@@ -78,7 +78,6 @@ namespace WebApplication1.Controllers
 
         private bool ComprobarUsuario(TUsuario usuario, TUsuario temporal)
         {
-
             if (usuario.Rol == null && temporal != null)
             {
                 if (usuario.Pass.Equals(temporal.Pass))

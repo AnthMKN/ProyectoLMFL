@@ -17,7 +17,7 @@ else {
 
 function success(data) {
     anyadirCarrito(data);
-    localStorage.carrito = JSON.stringify(carrito);//Revisar
+    localStorage.carrito = JSON.stringify(carrito);
 }
 
 function anyadirCarrito(dato) {
@@ -68,7 +68,7 @@ function renderizarCarrito(carrito) {
         miBoton.setAttribute('posicion', indice);
         indice = indice + 1;
         miBoton.addEventListener('click', borrarItemCarrito);
-        miNodo.appendChild(miBoton);
+        miNodo.appendChild(miBoton);//boton X de borrado
         $carrito.appendChild(miNodo);
     }
 }

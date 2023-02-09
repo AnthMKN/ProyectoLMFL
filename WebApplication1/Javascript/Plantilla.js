@@ -17,7 +17,7 @@ function calcularT(carro) {
     for (let miItem of carro) {
         t = t + parseFloat(miItem[0]['Precio']);
     }
-    $t.textContent = t.toFixed(2);
+    $t.textContent = t.toFixed(2);//revisar
 }
 
 
